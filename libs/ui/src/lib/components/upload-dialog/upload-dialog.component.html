@@ -1,0 +1,23 @@
+<input type="file" class="file-input" [hidden]="true" (change)="onFileSelected($event)" #fileUpload multiple>
+
+<div class="file-upload">
+    <p-button color="primary"
+      (click)="fileUpload.click()">
+     Upload
+    </p-button>
+</div>
+
+<p-table [value]="files">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Progress</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-files>
+        <tr>
+            <td>{{ files.name }}</td>
+            <td><p-progressBar [value]="files.Progress"></p-progressBar></td>
+        </tr>
+    </ng-template>
+</p-table>
