@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@file-uploader/files": ["libs/files/src/index.ts"],
       "@file-uploader/ui": ["libs/ui/src/index.ts"]
     }
   },
