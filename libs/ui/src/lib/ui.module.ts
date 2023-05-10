@@ -5,12 +5,13 @@ import {BrowserAnimationsModule} from  '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 
 @NgModule({
-  imports: [CommonModule, BrowserAnimationsModule, ButtonModule, TableModule, ProgressBarModule],
+  imports: [CommonModule, BrowserAnimationsModule, ButtonModule, TableModule, ProgressBarModule, HttpClientModule],
   declarations: [UploadDialogComponent],
   exports: [UploadDialogComponent],
 })

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FileService } from '../../services/file.service';
 
 @Component({
   selector: 'file-uploader-upload-dialog',
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
 export class UploadDialogComponent {
   selectedFiles?: FileList;
   files: any[] = [];
+
+  constructor(private fileService: FileService){}
+
   onFileSelected(event: any) {
       this.selectedFiles = event.target.files;
       if (this.selectedFiles ){
@@ -15,8 +19,10 @@ export class UploadDialogComponent {
           this.files.push({
             name: this.selectedFiles.item(i)?.name,
             progress: 0,
-        });
+          });
         }
+
+        this.fileService.uploadFile().subscribe();
       }
   }
 
