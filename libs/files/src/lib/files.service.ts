@@ -10,9 +10,12 @@ export class FilesService {
         return prisma.file.findMany()
       }
 
-    public addFile(data: Prisma.FileCreateInput): Promise<File> {
-    return prisma.file.create({
-        data,
+    public async addFile(name: string, content: string): Promise<File> {
+      return await prisma.file.create({
+        data : {
+          name: name,
+          content: content
+        }
      })
 }
 }

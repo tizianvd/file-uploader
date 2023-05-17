@@ -21,3 +21,11 @@
         </tr>
     </ng-template>
 </p-table>
+
+<div *ngIf="(uploadedFiles | async) as uploads">
+    <ul>
+        <li *ngFor="let file of uploads">{{file.name}} 
+            <img [src]="file.content">
+        </li>
+    </ul>
+</div>

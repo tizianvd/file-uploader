@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Request } from '@nestjs/common';
 import { FilesService } from './files.service';
 
 @Controller('files')
@@ -10,7 +10,7 @@ export class FilesController {
     }
 
     @Post('add')
-    async addProduct(@Body() data: { name: string}) {
-        return await this.filesService.addFile({name: data.name});
+    async addProduct(@Body() data: { name: string, content: string}) {
+        return await this.filesService.addFile(data.name, data.content);
     }
 }
