@@ -12,20 +12,25 @@
         <tr>
             <th>Name</th>
             <th>Progress</th>
+            <th>URL</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-files>
         <tr>
             <td>{{ files.name }}</td>
-            <td><p-progressBar [value]="files.Progress"></p-progressBar></td>
+            <td><p-progressBar [value]="files.progress"></p-progressBar></td>
+            <td>
+                <input type="text" pInputText [value]="files.url" readonly/>
+                <p-button [cdkCopyToClipboard]="files.url" icon="pi pi-copy"></p-button>
+            </td>
         </tr>
     </ng-template>
 </p-table>
 
-<div *ngIf="(uploadedFiles | async) as uploads">
-    <ul>
-        <li *ngFor="let file of uploads">{{file.name}} 
-            <img [src]="file.content">
-        </li>
-    </ul>
-</div>
+<!-- <div *ngIf="(thumbnails | async) as uploads">
+    <div class="imageContainer" *ngFor="let file of uploads">
+        <div class="image">
+            <a [href]="'http://localhost:3000/uploads/' + file.id + '/' + file.name + '.' + file.extension"><img [src]="'http://localhost:3000/uploads/' + file.id + '/' + file.name + '_thumbnail.png'"></a>
+        </div>    
+    </div>
+</div> -->

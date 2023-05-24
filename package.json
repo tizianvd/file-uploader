@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently --kill-others \"nx serve file-uploader\" \"nx serve api\""
+    "start": "concurrently --kill-others \"nx serve file-uploader\" \"nx serve file-server\" \"nx serve api\""
   },
   "private": true,
   "dependencies": {
@@ -20,14 +20,17 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/serve-static": "^3.0.1",
     "@nrwl/angular": "16.0.3",
     "@prisma/client": "^4.13.0",
+    "@types/sharp": "^0.32.0",
     "axios": "^1.0.0",
     "concurrently": "^8.0.1",
     "primeicons": "^6.0.1",
     "primeng": "^15.4.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.0",
+    "sharp": "^0.32.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
@@ -41,6 +44,7 @@
     "@angular/cli": "~15.2.0",
     "@angular/compiler-cli": "~15.2.0",
     "@angular/language-service": "~15.2.0",
+    "@fastify/static": "^6.10.1",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
     "@nrwl/cypress": "16.0.3",
@@ -51,13 +55,16 @@
     "@nrwl/nest": "16.0.3",
     "@nrwl/nx-cloud": "16.0.5",
     "@nrwl/workspace": "16.0.3",
+    "@nx/cypress": "16.0.3",
     "@nx/jest": "16.0.3",
     "@nx/js": "16.0.3",
     "@nx/nest": "16.0.3",
     "@nx/node": "16.0.3",
+    "@nx/web": "16.0.3",
     "@nx/webpack": "16.0.3",
     "@schematics/angular": "~15.2.0",
     "@types/jest": "^29.4.0",
+    "@types/multer": "^1.4.7",
     "@types/node": "~18.7.1",
     "@typescript-eslint/eslint-plugin": "5.58.0",
     "@typescript-eslint/parser": "5.58.0",
@@ -69,11 +76,13 @@
     "jest-environment-jsdom": "^29.4.1",
     "jest-environment-node": "^29.4.1",
     "jest-preset-angular": "~13.0.0",
+    "jimp": "^0.22.8",
     "nx": "16.0.3",
     "prettier": "^2.6.2",
     "prisma": "^4.14.0",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
-    "typescript": "~4.9.5"
+    "typescript": "~4.9.5",
+    "webp-converter": "2.2.3"
   }
 }

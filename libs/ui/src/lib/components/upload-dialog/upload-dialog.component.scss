@@ -1,0 +1,25 @@
+.imageContainer {
+    display: inline-block;
+    margin: 1px 1px;
+    height: 200px;
+    width: 250px;
+    border: 3px lightskyblue solid;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.image {
+    margin: 0 auto;
+    margin-top: 10%;
+    position: relative;
+}
+
+.imageInfo {
+    background-color: rgb(0, 0, 0, 0.9);
+    height: 10px;
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    bottom:0;
+    left:0;
+}
