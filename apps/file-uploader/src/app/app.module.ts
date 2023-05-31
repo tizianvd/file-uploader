@@ -13,8 +13,8 @@ import { UiModule } from '@file-uploader/ui';
     BrowserModule,
     RouterModule.forRoot([
       {
-        path: 'cart',
-        loadChildren: () => import('@file-uploader/ui').then((m) => m.UploadDialogComponent),
+        path: 'profile',
+        loadChildren: () => import('@file-uploader/ui').then((m) => m.UserProfileModule),
       },
       {
         path: '**',

@@ -13,7 +13,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
-import { PersonalFilesComponent } from './components/personal-files/personal-files.component';
+import { PersonalFilesComponent } from './modules/user-profile/personal-files/personal-files.component';
+import { UserProfileRoutesComponent } from './user-profile/personal-files/user-profile-routes/user-profile-routes.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,12 @@ import { PersonalFilesComponent } from './components/personal-files/personal-fil
     HttpClientModule,
     ClipboardModule,
   ],
-  declarations: [UploadDialogComponent, LoginComponent, PersonalFilesComponent],
+  declarations: [
+    UploadDialogComponent,
+    LoginComponent,
+    PersonalFilesComponent,
+    UserProfileRoutesComponent,
+  ],
   exports: [UploadDialogComponent, LoginComponent],
   providers: [CookieService],
 })
