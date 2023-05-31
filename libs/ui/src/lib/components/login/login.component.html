@@ -1,3 +1,9 @@
-<input type="text" pInputText placeholder="Username" [(ngModel)]="username"/>
-<input type="password" pInputText placeholder="Password" [(ngModel)]="password"/>
-<button type="button" pButton>Login</button>
+<div *ngIf="!authData;else loggedIn">
+    <input type="text" pInputText placeholder="Username" [(ngModel)]="username"/>
+    <input type="password" pInputText placeholder="Password" [(ngModel)]="password"/>
+    <button type="button" pButton (click)="login()">Login</button>
+</div>
+
+<ng-template #loggedIn> 
+    Logged in as {{authData?.login}}
+</ng-template>
