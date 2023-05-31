@@ -33,14 +33,7 @@ export class UploadDialogComponent {
             progress: 0,
           });
 
-          // const reader = new FileReader();
-          // reader.readAsDataURL(file);
-          // reader.onload = () => {
-          //     if (reader.result) {
-          //       this.fileService.uploadFile(file.name, reader.result.toString().split(",")[1]).subscribe();
-          //     }
-          // };
-          this.fileService.uploadFile(file.name, file).subscribe({
+          this.fileService.uploadFile(file.name, file)?.subscribe({
             next: (event: any) => {
               if (event.type === HttpEventType.UploadProgress) {
                 this.files[this.files.length - 1].progress = Math.round(

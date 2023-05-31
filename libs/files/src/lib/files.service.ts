@@ -10,12 +10,13 @@ export class FilesService {
         return await prisma.file.findMany()
     }
 
-    public async addFile(name: string): Promise<File> {
+    public async addFile(name: string, userId: string): Promise<File> {
         const extension = name.match(/\.([^.]+)$/)
       return await prisma.file.create({
         data : {
           name: name.replace(/\.[^/.]+$/, ''),
           extension: extension ? extension[1] : "png",
+          user: {connect: {id: Number(userId)}}
         }
      })
 }

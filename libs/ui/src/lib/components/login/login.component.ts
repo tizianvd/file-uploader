@@ -10,7 +10,7 @@ export class LoginComponent implements OnInit {
   username = "test";
   password = "test";
 
-  authData?: AuthData;
+  authData?: AuthData | null;
 
   constructor(private authService: AuthService){
 
@@ -20,7 +20,12 @@ export class LoginComponent implements OnInit {
     this.authData = await this.authService.login(this.username, this.password);
   }
 
+  async logout() {
+    this.authService.logout()
+    this.authData = null;
+  }
+
   ngOnInit(): void {
-      this.authData = this.authService.getAuthData();
+    this.authData = this.authService.getAuthData();
   }
 }

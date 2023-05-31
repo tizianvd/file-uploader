@@ -11,7 +11,16 @@ import { UiModule } from '@file-uploader/ui';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot([
+      {
+        path: 'cart',
+        loadChildren: () => import('@file-uploader/ui').then((m) => m.UploadDialogComponent),
+      },
+      {
+        path: '**',
+        loadChildren: () => import('@file-uploader/ui').then((m) => m.UploadDialogComponent),
+      },
+    ]),
     BrowserAnimationsModule,
     UiModule,
   ],

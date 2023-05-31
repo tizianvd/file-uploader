@@ -16,8 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@file-uploader/files": ["libs/files/src/index.ts"],
-      "@file-uploader/users": ["libs/users/src/index.ts"],
-      "@file-uploader/ui": ["libs/ui/src/index.ts"]
+      "@file-uploader/ui": ["libs/ui/src/index.ts"],
+      "@file-uploader/users": ["libs/users/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -4,6 +4,7 @@ import { UploadDialogComponent } from './components/upload-dialog/upload-dialog.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { CookieService } from 'ngx-cookie-service';
 
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
@@ -12,6 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
+import { PersonalFilesComponent } from './components/personal-files/personal-files.component';
 
 @NgModule({
   imports: [
@@ -25,7 +27,8 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     ClipboardModule,
   ],
-  declarations: [UploadDialogComponent, LoginComponent],
+  declarations: [UploadDialogComponent, LoginComponent, PersonalFilesComponent],
   exports: [UploadDialogComponent, LoginComponent],
+  providers: [CookieService],
 })
 export class UiModule {}

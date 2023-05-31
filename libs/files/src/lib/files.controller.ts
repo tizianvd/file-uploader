@@ -1,4 +1,4 @@
-import { Controller, Get, Post, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Get, Post, UseInterceptors, UploadedFile, Body } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { FilesService } from './files.service';
@@ -45,8 +45,9 @@ export class FilesController {
       //fileFilter: imageFileFilter,
     }),
   )
-  async addFile(@UploadedFile() file: any) {
-    const fileData = await this.filesService.addFile(file.originalname);
+  async addFile(@UploadedFile() file: any, @Body() body: any) {
+    console.log("UserID: " + body.userID)
+    const fileData = await this.filesService.addFile(file.originalname, body.userID);
     if (fileData) {
         const newPath = path.join(__dirname, '..', `uploads/${fileData.id}/${file.originalname}`);
         this.ensureDirectoryExistence(newPath);

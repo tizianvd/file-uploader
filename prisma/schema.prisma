@@ -14,6 +14,8 @@ model File {
   id  String @id @default(cuid())
   name String
   extension String
+  user  User? @relation(fields: [userId], references: [id])
+  userId    Int?
 }
 
 model User {
@@ -21,5 +23,6 @@ model User {
   login     String  @unique
   password String
   name  String
+  files File[]
   createdAt DateTime      @default(now())
 }
