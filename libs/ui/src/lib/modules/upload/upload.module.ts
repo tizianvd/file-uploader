@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { PersonalFilesComponent } from './personal-files/personal-files.component';
+import { UploadDialogComponent } from './upload-dialog/upload-dialog.component';
 
 
 
@@ -12,10 +12,10 @@ import { PersonalFilesComponent } from './personal-files/personal-files.componen
     CommonModule,
     RouterModule.forChild([
       {
-        path: 'files',
-        component: PersonalFilesComponent,
+        path: '',
+        component: UploadDialogComponent,
       },
     ]),
   ]
 })
-export class UserProfileModule { }
+export class UploadModule { }

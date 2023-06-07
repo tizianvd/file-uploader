@@ -1,9 +1,7 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { appRoutes } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiModule } from '@file-uploader/ui';
 
@@ -18,13 +16,15 @@ import { UiModule } from '@file-uploader/ui';
       },
       {
         path: '**',
-        loadChildren: () => import('@file-uploader/ui').then((m) => m.UploadDialogComponent),
+        loadChildren: () => import('@file-uploader/ui').then((m) => m.UploadModule),
       },
     ]),
     BrowserAnimationsModule,
     UiModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: "de-DE" }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

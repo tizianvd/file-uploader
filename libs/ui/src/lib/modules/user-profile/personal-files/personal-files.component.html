@@ -1,1 +1,23 @@
-<p>personal-files works!</p>
+<div *ngIf="($files | async) as files">
+    <p-table [value]="files">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>URL</th>
+                <th>Datum</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-files>
+            <tr>
+                <td>{{ files.name }}</td>
+                <td>
+                    <input type="text" pInputText [value]="files.url" readonly/>
+                    <p-button [cdkCopyToClipboard]="files.url" icon="pi pi-copy"></p-button>
+                </td>
+                <td>{{files.uploadedAt | date:'short'}}</td>
+                <td><p-button styleClass="p-button-danger" (click)="removeFile(files.id)">Delete</p-button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

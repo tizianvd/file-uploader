@@ -32,8 +32,16 @@ export class FileService {
     return this.http.request(req);
   }
 
+  removeFile(id: string) {
+    return this.http.post<any>('http://localhost:3000/api/files/remove', {id: id});
+  }
+
   getAllFiles(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:3000/api/files')
+  }
+
+  getUserFiles(userId: number): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:3000/api/files?userid='+userId)
   }
 }
 

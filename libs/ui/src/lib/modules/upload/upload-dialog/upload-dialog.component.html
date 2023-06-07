@@ -1,13 +1,13 @@
 <input type="file" class="file-input" [hidden]="true" (change)="onFileSelected($event)" #fileUpload multiple>
 
 <div class="file-upload">
-    <p-button color="primary"
+    <p-button color="primary" styleClass="p-button-lg"
       (click)="fileUpload.click()">
      Upload
     </p-button>
 </div>
 
-<p-table [value]="files">
+<p-table *ngIf="files.length > 0" [value]="files">
     <ng-template pTemplate="header">
         <tr>
             <th>Name</th>

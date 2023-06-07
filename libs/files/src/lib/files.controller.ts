@@ -1,4 +1,4 @@
-import { Controller, Get, Post, UseInterceptors, UploadedFile, Body } from '@nestjs/common';
+import { Controller, Get, Post, UseInterceptors, UploadedFile, Body, Query } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { FilesService } from './files.service';
@@ -10,8 +10,8 @@ import sharp = require('sharp')
 export class FilesController {
   constructor(private filesService: FilesService) {}
   @Get()
-  async getFiles() {
-    return await this.filesService.getFiles();
+  async getFiles(@Query('userid') userId?: number) {
+    return await this.filesService.getFiles(userId ? Number(userId) : 0);
   }
 
   ensureDirectoryExistence(filePath: string) {
@@ -50,6 +50,7 @@ export class FilesController {
     const fileData = await this.filesService.addFile(file.originalname, body.userID);
     if (fileData) {
         const newPath = path.join(__dirname, '..', `uploads/${fileData.id}/${file.originalname}`);
+        this.ensureDirectoryExistence('uploads/tmp');
         this.ensureDirectoryExistence(newPath);
         fs.rename(path.join(__dirname, '..', `uploads/tmp/${file.filename}`), newPath, function (err) {
             if (err) throw err
@@ -65,6 +66,12 @@ export class FilesController {
       id: fileData ? fileData.id : -1,
     };
     return response;
+  }
+
+  @Post('remove')
+  async removeFile(@Body() body: any) {
+    fs.rmSync(path.join(__dirname, '..', `uploads/${body.id}`), { recursive: true, force: true });
+    return await this.filesService.removeFile(body.id);
   }
   
 }

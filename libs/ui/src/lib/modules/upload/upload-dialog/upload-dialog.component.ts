@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FileService } from '../../services/file.service';
+import { FileService } from '../../../services/file.service';
 import { Observable, firstValueFrom, map, tap } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 

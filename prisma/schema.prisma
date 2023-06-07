@@ -16,6 +16,7 @@ model File {
   extension String
   user  User? @relation(fields: [userId], references: [id])
   userId    Int?
+  uploadedAt DateTime      @default(now())
 }
 
 model User {

@@ -1,0 +1,20 @@
+<p-menubar>
+    <ng-template pTemplate="start">
+        <a class="logo" routerLink="">File Uploader</a>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <div  class="userbar">
+            <div *ngIf="!authData;else loggedIn">
+                <input type="text" pInputText placeholder="Username" [(ngModel)]="username"/>
+                <input type="password" pInputText placeholder="Password" [(ngModel)]="password"/>
+                <button type="button" pButton (click)="login()">Login</button>
+            </div>
+        
+            <ng-template #loggedIn>
+                <div class="loginMessage">Logged in as {{authData?.login}}</div>
+                <a routerLink="/profile/files"><button pButton styleClass="p-button-sm">Files</button></a>
+                <button type="button" (click)="logout()" pButton styleClass="p-button-sm">Logout</button>
+            </ng-template>
+        </div>
+    </ng-template>
+</p-menubar>

@@ -41,4 +41,13 @@ export class AuthService {
 
     return authData;
   }
+
+  getUserId(): number {
+    const authData = this.getAuthData();
+    if (authData) {
+      return authData.sub;
+    }
+
+    return 0;
+  }
 }

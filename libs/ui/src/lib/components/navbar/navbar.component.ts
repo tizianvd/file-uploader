@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { AuthData, AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'file-uploader-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'file-uploader-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class NavbarComponent implements OnInit {
   username = "test";
   password = "test";
 
   authData?: AuthData | null;
 
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService) {
 
   }
 
